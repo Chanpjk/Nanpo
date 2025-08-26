@@ -1,74 +1,46 @@
-// Wait for DOM to load before running any script
-document.addEventListener('DOMContentLoaded', () => {
-  // Cache DOM references
-  const navLinks = document.querySelectorAll('nav a');
-  const sections = document.querySelectorAll('main > section');
 
-  /**
-   * Hide all sections and remove active classes from nav
-   */
-  function resetSections() {
-    sections.forEach(section => {
-      section.classList.add('hidden');
-      section.classList.remove('show');
-    });
-    navLinks.forEach(link => link.classList.remove('active'));
-  }
+// Particle background
+const canvas = document.getElementById('bg');
+const ctx = canvas.getContext('2d');
+let w, h, particles = [];
+function resize(){ w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; }
+window.addEventListener('resize', resize); resize();
+for(let i=0;i<80;i++){ particles.push({x:Math.random()*w, y:Math.random()*h, r:Math.random()*2+0.4, vx:(Math.random()-.5)*0.3, vy:(Math.random()-.5)*0.3});}
+function draw(){
+  ctx.clearRect(0,0,w,h);
+  ctx.fillStyle = 'rgba(255,140,20,0.15)';
+  particles.forEach(p=>{ p.x+=p.vx; p.y+=p.vy; if(p.x<0||p.x>w) p.vx*=-1; if(p.y<0||p.y>h) p.vy*=-1; ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2); ctx.fill(); });
+  requestAnimationFrame(draw);
+} draw();
 
-  /**
-   * Show a section by id and mark nav link as active
-   * @param {string} id – The ID of the section to show
-   */
-  function showSection(id) {
-    const section = document.querySelector(id);
-    if (!section) return;
-    resetSections();
-    // find nav link
-    const navLink = document.querySelector(`nav a[href='${id}']`);
-    if (navLink) navLink.classList.add('active');
-    // unhide section and animate
-    section.classList.remove('hidden');
-    // use setTimeout to trigger CSS transition after layout reflow
-    requestAnimationFrame(() => {
-      section.classList.add('show');
-    });
-  }
+// Nav links active state + smooth scroll
+const links = document.querySelectorAll('header nav a');
+links.forEach(a=>a.addEventListener('click', (e)=>{
+  e.preventDefault();
+  document.querySelector('header nav a.active')?.classList.remove('active');
+  a.classList.add('active');
+  const target = document.querySelector(a.getAttribute('href'));
+  if(target){ target.scrollIntoView({behavior:'smooth', block:'start'}); }
+}));
 
-  // Attach click listeners to nav links
-  navLinks.forEach(link => {
-    link.addEventListener('click', evt => {
-      evt.preventDefault();
-      const target = link.getAttribute('href');
-      showSection(target);
-    });
-  });
+// Reveal on scroll
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, {threshold: .15});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 
-  // Initially show home section
-  showSection('#home');
-
-  /**
-   * Simple chat simulation for the AI chat section.
-   */
-  const chatMessages = document.getElementById('chat-messages');
-  const chatInput = document.getElementById('chat-input');
-  const chatSend = document.getElementById('chat-send');
-
-  function appendMessage(text, isUser = false) {
-    const msg = document.createElement('div');
-    msg.textContent = (isUser ? 'You: ' : 'AI: ') + text;
-    msg.className = isUser ? 'user-msg' : 'ai-msg';
-    chatMessages.appendChild(msg);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-  }
-
-  chatSend.addEventListener('click', () => {
-    const text = chatInput.value.trim();
-    if (!text) return;
-    appendMessage(text, true);
-    chatInput.value = '';
-    // Simulate AI thinking
-    setTimeout(() => {
-      appendMessage(`Thanks for your question about "${text}". I'm here to help!`);
-    }, 600);
-  });
+// Simple AI helper (front-end only)
+const messages = document.getElementById('chat-messages');
+const input = document.getElementById('chat-input');
+const send = document.getElementById('chat-send');
+function pushMessage(text, role){
+  const el = document.createElement('div');
+  el.className = 'msg ' + role;
+  el.textContent = (role==='user'?'You: ':'AI: ') + text;
+  messages.appendChild(el); messages.scrollTop = messages.scrollHeight;
+}
+send?.addEventListener('click',()=>{
+  const q = input.value.trim(); if(!q) return;
+  pushMessage(q, 'user'); input.value='';
+  setTimeout(()=> pushMessage("Try: Spotlight reindex, Login Items, or Reduce Motion — check the Tweaks section.", 'ai'), 500);
 });

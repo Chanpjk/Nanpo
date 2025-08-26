@@ -1,98 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>macOS Tweaks – Advanced</title>
-    <!-- Google Font for a modern look -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <header>
-      <div class="container">
-        <h1>⚡ macOS Tweaks</h1>
-        <nav>
-          <a href="#home" class="active">Home</a>
-          <a href="#tweaks">Tweaks</a>
-          <a href="#download">Download</a>
-          <a href="#guide">Guide</a>
-          <a href="#chat">AI Chat</a>
-        </nav>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NANPO — macOS Tweaks</title>
+  <meta name="description" content="Nanpo: fast, clean, professional macOS performance tweaks with step‑by‑step guides.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-180.png">
+  <link rel="icon" href="assets/favicon.ico">
+  <link rel="stylesheet" href="style.css">
+  <meta property="og:title" content="NANPO — macOS Tweaks">
+  <meta property="og:description" content="Modern, sleek macOS tweaks with animations, step-by-step images, and download.">
+  <meta property="og:image" content="assets/favicon-512.png">
+</head>
+<body>
+  <canvas id="bg" aria-hidden="true"></canvas>
+  <header class="site-header">
+    <div class="brand">
+      <img src="assets/favicon-64.png" alt="Nanpo logo" class="logo">
+      <span class="wordmark">NANPO</span>
+    </div>
+    <nav>
+      <a href="#home" class="active">Home</a>
+      <a href="#tweaks">Tweaks</a>
+      <a href="#guide">Install Guide</a>
+      <a href="#download">Download</a>
+      <a href="#faq">FAQ</a>
+      <a href="#chat">AI Help</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="home" class="panel hero reveal">
+      <div class="hero-content">
+        <h1>Make macOS <span class="gradient">faster, cleaner, smarter</span></h1>
+        <p>Skip the guesswork. Nanpo collects proven tweaks for speed, battery life, and workflow. Clean UI, smooth animations, and step‑by‑step images.</p>
+        <div class="cta">
+          <a class="btn primary" href="#download">⬇ Download Nanpo App</a>
+          <a class="btn ghost" href="#tweaks">Explore tweaks</a>
+        </div>
+        <ul class="hero-bullets">
+          <li>Real steps with images</li>
+          <li>Safe & reversible</li>
+          <li>One‑click categories</li>
+        </ul>
       </div>
-    </header>
+    </section>
 
-    <main>
-      <!-- Hero / Home Section -->
-      <section id="home" class="section">
-        <div class="hero">
-          <h2>Elevate Your macOS Experience</h2>
-          <p>Discover performance, visual and battery tweaks to make your Mac feel like new.</p>
-          <a href="#download" class="button primary">Get the App</a>
+    <!-- TWEAKS -->
+    <section id="tweaks" class="panel reveal">
+      <h2>Core Tweaks</h2>
+      <div class="cards">
+        <article class="card">
+          <img src="assets/spotlight.svg" alt="Spotlight index image">
+          <h3>Rebuild Spotlight Index</h3>
+          <p>Fix slow search results by rebuilding Spotlight.</p>
+          <ol>
+            <li>Open <strong>System Settings ▸ Siri & Spotlight</strong>.</li>
+            <li>Toggle <em>Spotlight</em> off and on.</li>
+            <li>Or run: <code>sudo mdutil -E /</code> in Terminal.</li>
+          </ol>
+        </article>
+
+        <article class="card">
+          <img src="assets/loginitems.svg" alt="Login items">
+          <h3>Trim Login Items</h3>
+          <p>Stop heavy apps from launching at boot.</p>
+          <ol>
+            <li>Go to <strong>System Settings ▸ General ▸ Login Items</strong>.</li>
+            <li>Disable unnecessary apps, remove background items.</li>
+            <li>Reboot to feel the difference.</li>
+          </ol>
+        </article>
+
+        <article class="card">
+          <img src="assets/storage.svg" alt="Storage">
+          <h3>Storage & Caches</h3>
+          <p>Recover space the safe way.</p>
+          <ol>
+            <li> ▸ <strong>About This Mac ▸ Storage</strong> ▸ Manage.</li>
+            <li>Enable <em>Empty Trash Automatically</em>, remove large files.</li>
+            <li>Clear app caches: <code>~/Library/Caches</code> (quit apps first).</li>
+          </ol>
+        </article>
+
+        <article class="card">
+          <img src="assets/visuals.svg" alt="Visual effects">
+          <h3>Reduce Visual Effects</h3>
+          <p>Snappier UI on older Macs.</p>
+          <ol>
+            <li>System Settings ▸ <strong>Accessibility ▸ Display</strong>.</li>
+            <li>Enable <em>Reduce motion</em> and <em>Reduce transparency</em>.</li>
+          </ol>
+        </article>
+
+        <article class="card">
+          <img src="assets/homebrew.svg" alt="Homebrew">
+          <h3>Install Homebrew</h3>
+          <p>Get developer tools in one command.</p>
+          <ol>
+            <li>Open Terminal.</li>
+            <li>Run: <code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code></li>
+            <li>Then: <code>brew install --cask iterm2 rectangle</code></li>
+          </ol>
+        </article>
+
+        <article class="card">
+          <img src="assets/safari.svg" alt="Safari settings">
+          <h3>Safari Performance</h3>
+          <p>Faster browsing.</p>
+          <ol>
+            <li>Safari ▸ Settings ▸ <strong>Privacy</strong>: disable cross‑site tracking.</li>
+            <li>Extensions: remove unused add‑ons.</li>
+            <li>Clear History ▸ All History.</li>
+          </ol>
+        </article>
+      </div>
+    </section>
+
+    <!-- INSTALL GUIDE -->
+    <section id="guide" class="panel reveal">
+      <h2>Install & Verify the App</h2>
+      <div class="guide-steps">
+        <figure>
+          <img src="assets/security.svg" alt="Privacy & Security panel">
+          <figcaption>1. Open <strong>System Settings ▸ Privacy &amp; Security</strong>.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/allow.svg" alt="Allow app">
+          <figcaption>2. If macOS blocks the app, click <strong>Allow Anyway</strong>.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/touchid.svg" alt="Touch ID">
+          <figcaption>3. Reopen the app, confirm with password or Touch ID.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- DOWNLOAD -->
+    <section id="download" class="panel reveal">
+      <h2>Download Nanpo App</h2>
+      <p><em>Not from the App Store. Signed for development; use the guide above if macOS shows a warning.</em></p>
+      <a class="btn primary jumbo" href="NanpoApp.zip" download>⬇ Download NanpoApp.zip</a>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="panel reveal">
+      <h2>Frequently Asked</h2>
+      <details><summary>Is this safe?</summary>
+        <p>All tweaks shown are native system options or simple file‑level cache clears. You can revert everything in System Settings.</p>
+      </details>
+      <details><summary>Which macOS versions are supported?</summary>
+        <p>Tested on Ventura, Sonoma and Sequoia. Some menu wording may vary slightly.</p>
+      </details>
+      <details><summary>Do I need admin rights?</summary>
+        <p>Only for a few steps (Spotlight reindex, some cache clears) and for first app launch.</p>
+      </details>
+    </section>
+
+    <!-- CHAT -->
+    <section id="chat" class="panel reveal">
+      <h2>AI Help</h2>
+      <div id="chatbox" class="chatbox">
+        <div id="chat-messages" class="messages" aria-live="polite"></div>
+        <div class="composer">
+          <input id="chat-input" type="text" placeholder="Ask about a tweak…" />
+          <button id="chat-send" class="btn">Send</button>
         </div>
-      </section>
+      </div>
+    </section>
+  </main>
 
-      <!-- Tweaks Section -->
-      <section id="tweaks" class="section hidden">
-        <h2>Tweak Categories</h2>
-        <div class="cards">
-          <div class="card">
-            <h3>Performance</h3>
-            <p>Accelerate boot times, app launches and reduce system lag with curated performance tips.</p>
-          </div>
-          <div class="card">
-            <h3>Visual</h3>
-            <p>Enhance your workspace with minimalist themes, vibrant wallpapers and UI polish.</p>
-          </div>
-          <div class="card">
-            <h3>Battery</h3>
-            <p>Extend battery life by optimizing energy‑hungry processes and background services.</p>
-          </div>
-          <div class="card">
-            <h3>Security</h3>
-            <p>Lock down your Mac with privacy tweaks, firewall tips and malware prevention.</p>
-          </div>
-        </div>
-      </section>
+  <footer class="site-footer">
+    <div class="brand">
+      <img src="assets/favicon-32.png" alt="" class="logo-sm">
+      <span>NANPO</span>
+    </div>
+    <small>© 2025 Nanpo. Built with ❤️ for macOS users.</small>
+  </footer>
 
-      <!-- Download Section -->
-      <section id="download" class="section hidden">
-        <h2>Download Nanpo App</h2>
-        <p>Our companion app bundles all of our tweaks in one easy place. It’s signed and safe to run on macOS.</p>
-        <a href="NanpoApp.zip" download class="button secondary">⬇️ Download Nanpo for macOS</a>
-        <p class="note">After downloading, follow the installation guide to allow the app through security settings.</p>
-      </section>
-
-      <!-- Guide Section -->
-      <section id="guide" class="section hidden">
-        <h2>Installation Guide</h2>
-        <ol class="guide-list">
-          <li>Click the Download button above and save <strong>NanpoApp.zip</strong> to your Mac.</li>
-          <li>Unzip the archive and drag <strong>Nanpo.app</strong> into your Applications folder.</li>
-          <li>Open <strong>System Settings → Privacy &amp; Security</strong>.</li>
-          <li>Scroll down to the “Security” section; you should see a message about Nanpo being blocked. Click <strong>Allow Anyway</strong>.</li>
-          <li>Open the Nanpo app again. macOS will ask for your password or fingerprint – authenticate to proceed.</li>
-          <li>You’re all set! Explore the tweaks and customize your Mac.</li>
-        </ol>
-      </section>
-
-      <!-- Chat Section -->
-      <section id="chat" class="section hidden">
-        <h2>AI Chat Assistant</h2>
-        <div id="chatbox">
-          <div id="chat-messages" class="chat-messages"></div>
-          <div class="chat-input-row">
-            <input type="text" id="chat-input" placeholder="Ask me something..." />
-            <button id="chat-send" class="button tertiary">Send</button>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <small>Built with ❤️ for macOS enthusiasts</small>
-    </footer>
-
-    <script src="script.js"></script>
-  </body>
+  <script>document.querySelector('footer small').innerHTML = `© ${new Date().getFullYear()} Nanpo. Built with ❤️ for macOS users.`</script>
+  <script src="script.js"></script>
+</body>
 </html>
