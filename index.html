@@ -1,70 +1,98 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>macOS Tweaks</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header>
-    <h1>⚡ macOS Tweaks</h1>
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#tweaks">Tweaks</a>
-      <a href="#download">Download</a>
-      <a href="#guide">Guide</a>
-      <a href="#chat">AI Chat</a>
-    </nav>
-  </header>
-
-  <main>
-    <section id="home" class="tab">
-      <h2>Welcome</h2>
-      <p>Boost your macOS performance with modern, sleek tweaks 🚀</p>
-    </section>
-
-    <section id="tweaks" class="tab hidden">
-      <h2>Tweak Categories</h2>
-      <div class="cards">
-        <div class="card"><h3>Performance</h3><p>Tips to maximize speed and responsiveness.</p></div>
-        <div class="card"><h3>Quality</h3><p>Visual and workflow improvements for daily use.</p></div>
-        <div class="card"><h3>Balance</h3><p>Find the best mix between performance and battery life.</p></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>macOS Tweaks – Advanced</title>
+    <!-- Google Font for a modern look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>⚡ macOS Tweaks</h1>
+        <nav>
+          <a href="#home" class="active">Home</a>
+          <a href="#tweaks">Tweaks</a>
+          <a href="#download">Download</a>
+          <a href="#guide">Guide</a>
+          <a href="#chat">AI Chat</a>
+        </nav>
       </div>
-    </section>
+    </header>
 
-    <section id="download" class="tab hidden">
-      <h2>Download the App</h2>
-      <a href="NanpoApp.zip" download class="button">⬇️ Download Nanpo App</a>
-      <p>After downloading, follow the <a href="#guide">Guide</a> to verify and open the app.</p>
-    </section>
+    <main>
+      <!-- Hero / Home Section -->
+      <section id="home" class="section">
+        <div class="hero">
+          <h2>Elevate Your macOS Experience</h2>
+          <p>Discover performance, visual and battery tweaks to make your Mac feel like new.</p>
+          <a href="#download" class="button primary">Get the App</a>
+        </div>
+      </section>
 
-    <section id="guide" class="tab hidden">
-      <h2>Installation Guide</h2>
-      <ol>
-        <li>Download the app using the button above.</li>
-        <li>Open <strong>System Preferences → Privacy & Security</strong>.</li>
-        <li>Scroll down until you see the blocked app warning.</li>
-        <li>Click <strong>Allow Anyway</strong>.</li>
-        <li>Reopen the app → macOS will ask for your <strong>password or fingerprint</strong>.</li>
-        <li>Confirm, and you’re ready to go 🎉</li>
-      </ol>
-    </section>
+      <!-- Tweaks Section -->
+      <section id="tweaks" class="section hidden">
+        <h2>Tweak Categories</h2>
+        <div class="cards">
+          <div class="card">
+            <h3>Performance</h3>
+            <p>Accelerate boot times, app launches and reduce system lag with curated performance tips.</p>
+          </div>
+          <div class="card">
+            <h3>Visual</h3>
+            <p>Enhance your workspace with minimalist themes, vibrant wallpapers and UI polish.</p>
+          </div>
+          <div class="card">
+            <h3>Battery</h3>
+            <p>Extend battery life by optimizing energy‑hungry processes and background services.</p>
+          </div>
+          <div class="card">
+            <h3>Security</h3>
+            <p>Lock down your Mac with privacy tweaks, firewall tips and malware prevention.</p>
+          </div>
+        </div>
+      </section>
 
-    <section id="chat" class="tab hidden">
-      <h2>AI Chat Assistant</h2>
-      <div id="chatbox">
-        <div id="chat-messages"></div>
-        <input type="text" id="chat-input" placeholder="Ask me something..." />
-        <button id="chat-send">Send</button>
-      </div>
-    </section>
-  </main>
+      <!-- Download Section -->
+      <section id="download" class="section hidden">
+        <h2>Download Nanpo App</h2>
+        <p>Our companion app bundles all of our tweaks in one easy place. It’s signed and safe to run on macOS.</p>
+        <a href="NanpoApp.zip" download class="button secondary">⬇️ Download Nanpo for macOS</a>
+        <p class="note">After downloading, follow the installation guide to allow the app through security settings.</p>
+      </section>
 
-  <footer>
-    <small>Built with ❤️ for macOS users</small>
-  </footer>
+      <!-- Guide Section -->
+      <section id="guide" class="section hidden">
+        <h2>Installation Guide</h2>
+        <ol class="guide-list">
+          <li>Click the Download button above and save <strong>NanpoApp.zip</strong> to your Mac.</li>
+          <li>Unzip the archive and drag <strong>Nanpo.app</strong> into your Applications folder.</li>
+          <li>Open <strong>System Settings → Privacy &amp; Security</strong>.</li>
+          <li>Scroll down to the “Security” section; you should see a message about Nanpo being blocked. Click <strong>Allow Anyway</strong>.</li>
+          <li>Open the Nanpo app again. macOS will ask for your password or fingerprint – authenticate to proceed.</li>
+          <li>You’re all set! Explore the tweaks and customize your Mac.</li>
+        </ol>
+      </section>
 
-  <script src="script.js"></script>
-</body>
+      <!-- Chat Section -->
+      <section id="chat" class="section hidden">
+        <h2>AI Chat Assistant</h2>
+        <div id="chatbox">
+          <div id="chat-messages" class="chat-messages"></div>
+          <div class="chat-input-row">
+            <input type="text" id="chat-input" placeholder="Ask me something..." />
+            <button id="chat-send" class="button tertiary">Send</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <small>Built with ❤️ for macOS enthusiasts</small>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
 </html>
