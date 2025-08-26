@@ -3,22 +3,66 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>My Netlify Site</title>
+  <title>macOS Tweaks</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
-    <h1>🚀 Hello, Netlify!</h1>
-    <p>If you see this page, your site is working correctly.</p>
+    <h1>⚡ macOS Tweaks</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#tweaks">Tweaks</a>
+      <a href="#download">Download</a>
+      <a href="#guide">Guide</a>
+      <a href="#chat">AI Chat</a>
+    </nav>
   </header>
 
   <main>
-    <button id="btn">Click me</button>
-    <p id="msg" class="hidden">🎉 JavaScript is working!</p>
+    <section id="home" class="tab">
+      <h2>Welcome</h2>
+      <p>Boost your macOS performance with modern, sleek tweaks 🚀</p>
+    </section>
+
+    <section id="tweaks" class="tab hidden">
+      <h2>Tweak Categories</h2>
+      <div class="cards">
+        <div class="card"><h3>Performance</h3><p>Tips to maximize speed and responsiveness.</p></div>
+        <div class="card"><h3>Quality</h3><p>Visual and workflow improvements for daily use.</p></div>
+        <div class="card"><h3>Balance</h3><p>Find the best mix between performance and battery life.</p></div>
+      </div>
+    </section>
+
+    <section id="download" class="tab hidden">
+      <h2>Download the App</h2>
+      <a href="NanpoApp.zip" download class="button">⬇️ Download Nanpo App</a>
+      <p>After downloading, follow the <a href="#guide">Guide</a> to verify and open the app.</p>
+    </section>
+
+    <section id="guide" class="tab hidden">
+      <h2>Installation Guide</h2>
+      <ol>
+        <li>Download the app using the button above.</li>
+        <li>Open <strong>System Preferences → Privacy & Security</strong>.</li>
+        <li>Scroll down until you see the blocked app warning.</li>
+        <li>Click <strong>Allow Anyway</strong>.</li>
+        <li>Reopen the app → macOS will ask for your <strong>password or fingerprint</strong>.</li>
+        <li>Confirm, and you’re ready to go 🎉</li>
+      </ol>
+    </section>
+
+    <section id="chat" class="tab hidden">
+      <h2>AI Chat Assistant</h2>
+      <div id="chatbox">
+        <div id="chat-messages"></div>
+        <input type="text" id="chat-input" placeholder="Ask me something..." />
+        <button id="chat-send">Send</button>
+      </div>
+    </section>
   </main>
 
   <footer>
-    <small>Deployed with ❤️ on Netlify</small>
+    <small>Built with ❤️ for macOS users</small>
   </footer>
 
   <script src="script.js"></script>
